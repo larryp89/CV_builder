@@ -1,10 +1,25 @@
 import "../styles/FormInput.css";
+import { useState } from "react";
 
-function FormInput({ text, Tag, type }) {
+function FormInput({ form, setForm, name, text, Tag, type }) {
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="form-input">
-      <label htmlFor={text}>{text}</label>
-      {Tag === "input" ? <Tag type={type} id={text} /> : <Tag id={text} />}
+      <label htmlFor={name}>{text}</label>
+      <Tag
+        type={type}
+        id={name}
+        name={name}
+        value={form[name] || ""}
+        onChange={handleChange}
+      />
     </div>
   );
 }

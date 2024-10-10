@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/App.css";
 import Sidebar from "./Side";
+import Preview from "./Preview";
 
 function App() {
   const [form, setForm] = useState({
@@ -16,7 +17,8 @@ function App() {
 
   return (
     <div className="app-container">
-      <Sidebar />
+      <Sidebar form={form} setForm={setForm} />
+      <Preview form={form} />
     </div>
   );
 }
