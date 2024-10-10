@@ -1,13 +1,11 @@
 import "../styles/FormInput.css";
 
-function FormInput() {
+function FormInput({ text, Tag, type }) {
   return (
-    <>
-      <label htmlFor="">LABEL</label>
-      <form action="">
-        <input type="text" placeholder="TEXT" />
-      </form>
-    </>
+    <div className="form-input">
+      <label htmlFor={text}>{text}</label>
+      {Tag === "input" ? <Tag type={type} id={text} /> : <Tag id={text} />}
+    </div>
   );
 }
 

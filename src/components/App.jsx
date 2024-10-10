@@ -3,7 +3,22 @@ import "../styles/App.css";
 import Sidebar from "./Side";
 
 function App() {
-  return <Sidebar />;
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    currentJob: "",
+    personalSummary: "",
+    email: "",
+    phoneNum: "",
+    location: "",
+    website: "",
+  });
+
+  return (
+    <div className="app-container">
+      <Sidebar />
+    </div>
+  );
 }
 
 export default App;
