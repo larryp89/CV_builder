@@ -1,4 +1,29 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
+  padding: 0rem 3rem;
+  background-color: white;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.sidebar h1,
+.sidebar h2 {
+  color: black;
+}
+
+.sidebar label {
+  color: black;
+  text-align: left;
+}
+
+.sidebar input {
+  margin-bottom: 2rem;
+  height: 2rem;
+}
+
+.sidebar textarea {
+  height: 8rem;
+  margin-bottom: 2rem;
 }

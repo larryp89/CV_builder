@@ -1,9 +1,8 @@
 import "../styles/FormInput.css";
-import { useState } from "react";
 
 function FormInput({ form, setForm, name, text, Tag, type }) {
   const handleChange = (event) => {
-    const { value } = event.target;
+    const { value } = event.target; // Destructuring target
     setForm((prevForm) => ({
       ...prevForm,
       [name]: value,
@@ -13,13 +12,23 @@ function FormInput({ form, setForm, name, text, Tag, type }) {
   return (
     <div className="form-input">
       <label htmlFor={name}>{text}</label>
-      <Tag
-        type={type}
-        id={name}
-        name={name}
-        value={form[name] || ""}
-        onChange={handleChange}
-      />
+
+      {Tag === "textarea" ? (
+        <Tag
+          id={name}
+          name={name}
+          value={form[name] || ""}
+          onChange={handleChange}
+        />
+      ) : (
+        <Tag
+          type={type}
+          id={name}
+          name={name}
+          value={form[name] || ""}
+          onChange={handleChange}
+        />
+      )}
     </div>
   );
 }

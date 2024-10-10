@@ -5,14 +5,15 @@ import Preview from "./Preview";
 
 function App() {
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    currentJob: "",
-    personalSummary: "",
-    email: "",
-    phoneNum: "",
-    location: "",
-    website: "",
+    firstName: "Homer",
+    lastName: "Simpson",
+    currentJob: "Power Plant Worker",
+    personalSummary:
+      "I am a great man who does great things. The thing I am most proud of is sleeping on the job and no one even notices. Hell, even in a nuclear meltdown I was asleep! Screw your Burns!",
+    email: "homer@foxtv.net",
+    phoneNum: "411000",
+    location: "Springfield",
+    website: "thesimpsons.com",
   });
 
   return (
