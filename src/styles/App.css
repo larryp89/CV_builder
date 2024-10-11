@@ -4,4 +4,5 @@
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   box-sizing: border-box;
+  height: 1123px;
 }

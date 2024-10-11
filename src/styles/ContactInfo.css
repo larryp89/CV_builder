@@ -1,4 +1,8 @@
-.contact-info {
+.contact-infor {
   display: flex;
   flex-direction: column;
+}
+
+.contact-info > h2 {
+  border-bottom: 1px solid black;
 }

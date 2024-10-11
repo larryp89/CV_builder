@@ -21,9 +21,11 @@
 .sidebar input {
   margin-bottom: 2rem;
   height: 2rem;
+  padding: 1rem;
 }
 
 .sidebar textarea {
-  height: 8rem;
+  height: 10rem;
   margin-bottom: 2rem;
+  padding: 1rem;
 }

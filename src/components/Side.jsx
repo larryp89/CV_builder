@@ -7,14 +7,14 @@ function Sidebar({ form, setForm }) {
     <div className="sidebar">
       <header className="header">
         <h1>Welcome to CV Builder</h1>
-        <h2>
-          Create your CV by filling out the forms below! Your CV will be
+        <h3>
+          Create your CV by filling out the form below. Your CV will be
           dynamically updated in the preview.
-        </h2>
+        </h3>
       </header>
 
       <PersonalDetails form={form} setForm={setForm} />
-      {/* <ContactInfo form={form} setForm={setForm} /> */}
+      <ContactInfo form={form} setForm={setForm} />
     </div>
   );
 }

@@ -5,6 +5,7 @@ function PersonalDetails({ form, setForm }) {
   return (
     <div className="personal-details">
       <h2 className="personal-details__title">Personal Details</h2>
+
       <FormInput
         form={form}
         setForm={setForm}
@@ -40,6 +41,8 @@ function PersonalDetails({ form, setForm }) {
         Tag="textarea"
         type="text"
       />
+
+      <h2 className="contact-details__title">Contact Details</h2>
 
       <FormInput
         form={form}
