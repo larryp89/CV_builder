@@ -1,7 +1,7 @@
 import "../styles/ContactInfo.css";
 import FormInput from "./FormInput";
 
-function ContactInfo({form, setForm}) {
+function ContactInfo({ form, setForm, defaultForm }) {
   return (
     <div className="contact-info">
       <h2 className="contact-details__title">Contact Details</h2>
@@ -13,6 +13,7 @@ function ContactInfo({form, setForm}) {
         text="email"
         Tag="input"
         type="email"
+        defaultForm={defaultForm}
       />
 
       <FormInput
@@ -22,6 +23,7 @@ function ContactInfo({form, setForm}) {
         text="Phone number"
         Tag="input"
         type="tel"
+        defaultForm={defaultForm}
       />
 
       <FormInput
@@ -31,6 +33,7 @@ function ContactInfo({form, setForm}) {
         text="Location"
         Tag="input"
         type="text"
+        defaultForm={defaultForm}
       />
 
       <FormInput
@@ -40,6 +43,7 @@ function ContactInfo({form, setForm}) {
         text="Website"
         Tag="input"
         type="url"
+        defaultForm={defaultForm}
       />
     </div>
   );

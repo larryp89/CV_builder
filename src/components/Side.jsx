@@ -1,8 +1,9 @@
 import "../styles/Sidebar.css";
 import PersonalDetails from "./PersonalDetails";
 import ContactInfo from "./ContactInfo";
+import Education from "./Education";
 
-function Sidebar({ form, setForm }) {
+function Sidebar({ form, setForm, defaultForm }) {
   return (
     <div className="sidebar">
       <header className="header">
@@ -13,8 +14,13 @@ function Sidebar({ form, setForm }) {
         </h3>
       </header>
 
-      <PersonalDetails form={form} setForm={setForm} />
-      <ContactInfo form={form} setForm={setForm} />
+      <PersonalDetails
+        form={form}
+        setForm={setForm}
+        defaultForm={defaultForm}
+      />
+      <ContactInfo form={form} setForm={setForm} defaultForm={defaultForm} />
+      <Education form={form} setForm={setForm} defaultForm={defaultForm} />
     </div>
   );
 }

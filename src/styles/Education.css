@@ -1,8 +1,8 @@
-.contact-info {
+.education {
   display: flex;
   flex-direction: column;
 }
 
-.contact-info > h2 {
+.education > h2 {
   border-bottom: 1px solid black;
 }

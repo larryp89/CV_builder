@@ -11,10 +11,12 @@
   box-sizing: border-box;
 }
 
-.preview__personal-details {
+.preview__personal-details,
+.preview__education {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 2rem;
+  margin-bottom: 1rem;
 }
 
 .details-left,
@@ -24,7 +26,7 @@
 }
 
 .details-right {
-  gap: 1rem;
+  justify-content: space-between;
 }
 
 .details-right > div {
@@ -39,4 +41,8 @@
 
 .details-right svg {
   height: 1.5rem;
+}
+
+.preview__education p{
+    border-bottom: 1px solid black;
 }
