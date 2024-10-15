@@ -24,7 +24,6 @@ function PersonalDetails({ form, setForm, defaultForm }) {
         Tag="input"
         type="text"
         defaultForm={defaultForm}
-
       />
 
       <FormInput
@@ -35,7 +34,6 @@ function PersonalDetails({ form, setForm, defaultForm }) {
         Tag="input"
         type="text"
         defaultForm={defaultForm}
-
       />
 
       <FormInput
@@ -46,7 +44,6 @@ function PersonalDetails({ form, setForm, defaultForm }) {
         Tag="textarea"
         type="text"
         defaultForm={defaultForm}
-
       />
     </div>
   );

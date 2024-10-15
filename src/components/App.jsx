@@ -4,7 +4,7 @@ import Sidebar from "./Side";
 import Preview from "./Preview";
 
 function App() {
-  // Set up the form state with default values
+  // Default values for placeholder
   const defaultForm = {
     firstName: "Homer",
     lastName: "Simpson",
@@ -18,9 +18,12 @@ function App() {
     university: "University of Springfield",
     degree: "Nuclear Science",
     startDate: "01/01/1999",
+    endDate: "02/01/1999",
+    ongoing: false,
   };
 
-  const emptyForm = {
+  // Single state for all form data
+  const [detailsForm, setDetailsForm] = useState({
     firstName: "",
     lastName: "",
     currentJob: "",
@@ -32,15 +35,28 @@ function App() {
     university: "",
     degree: "",
     startDate: "",
-  };
+    ongoing: false,
+    endDate: "",
+    honors: "",
+  });
 
-  // Form state
-  const [form, setForm] = useState(emptyForm);
+  // Function to handle education form submission
+  const handleEducationSubmit = (newEducation) => {
+    setDetailsForm((prevForm) => ({
+      ...prevForm,
+      ...newEducation,
+    }));
+  };
 
   return (
     <div className="app-container">
-      <Sidebar form={form} setForm={setForm} defaultForm={defaultForm} />
-      <Preview form={form} defaultForm={defaultForm} />
+      <Sidebar
+        detailsForm={detailsForm}
+        setDetailsForm={setDetailsForm}
+        handleEducationSubmit={handleEducationSubmit}
+        defaultForm={defaultForm}
+      />
+      <Preview detailsForm={detailsForm} defaultForm={defaultForm} />
     </div>
   );
 }

@@ -3,7 +3,12 @@ import PersonalDetails from "./PersonalDetails";
 import ContactInfo from "./ContactInfo";
 import Education from "./Education";
 
-function Sidebar({ form, setForm, defaultForm }) {
+function Sidebar({
+  detailsForm,
+  setDetailsForm,
+  defaultForm,
+  handleEducationSubmit,
+}) {
   return (
     <div className="sidebar">
       <header className="header">
@@ -15,12 +20,21 @@ function Sidebar({ form, setForm, defaultForm }) {
       </header>
 
       <PersonalDetails
-        form={form}
-        setForm={setForm}
+        form={detailsForm}
+        setForm={setDetailsForm}
         defaultForm={defaultForm}
       />
-      <ContactInfo form={form} setForm={setForm} defaultForm={defaultForm} />
-      <Education form={form} setForm={setForm} defaultForm={defaultForm} />
+      <ContactInfo
+        form={detailsForm}
+        setForm={setDetailsForm}
+        defaultForm={defaultForm}
+      />
+
+      <Education
+        form={detailsForm}
+        setForm={handleEducationSubmit}
+        defaultForm={defaultForm}
+      />
     </div>
   );
 }

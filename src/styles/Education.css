@@ -6,3 +6,7 @@
 .education > h2 {
   border-bottom: 1px solid black;
 }
+
+.education-submit {
+  margin-bottom: 1rem;
+}

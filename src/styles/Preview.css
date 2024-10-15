@@ -11,8 +11,7 @@
   box-sizing: border-box;
 }
 
-.preview__personal-details,
-.preview__education {
+.preview__personal-details {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 2rem;
@@ -43,6 +42,7 @@
   height: 1.5rem;
 }
 
-.preview__education p{
-    border-bottom: 1px solid black;
+.uni-container {
+  display: flex;
+  gap: 1rem
 }

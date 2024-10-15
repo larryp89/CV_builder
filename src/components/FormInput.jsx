@@ -3,10 +3,10 @@ import "../styles/FormInput.css";
 function FormInput({ form, setForm, name, text, Tag, type, defaultForm }) {
   // Handle form changes
   const handleChange = (event) => {
-    const { value } = event.target;
+    const { value, checked } = event.target;
     setForm((prevForm) => ({
       ...prevForm,
-      [name]: value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -29,7 +29,8 @@ function FormInput({ form, setForm, name, text, Tag, type, defaultForm }) {
           name={name}
           value={form[name] || ""} // Controlled value from form
           onChange={handleChange}
-          placeholder={defaultForm[name]} // Use default value for the placeholder
+          // Conditionally add the placeholder attribute
+          {...(type !== "checkbox" ? { placeholder: defaultForm[name] } : {})}
         />
       )}
     </div>
