@@ -1,49 +1,42 @@
 import "../styles/ContactInfo.css";
 import FormInput from "./FormInput";
 
-function ContactInfo({ form, setForm, defaultForm }) {
+function ContactInfo({ defaultForm, handleDynamicChange }) {
   return (
     <div className="contact-info">
       <h2 className="contact-details__title">Contact Details</h2>
 
       <FormInput
-        form={form}
-        setForm={setForm}
-        name="email"
-        text="email"
-        Tag="input"
+        text="Email "
         type="email"
-        defaultForm={defaultForm}
+        placeholder={defaultForm.email}
+        id="email"
+        name="email"
+        handleChange={handleDynamicChange}
       />
-
       <FormInput
-        form={form}
-        setForm={setForm}
-        name="phoneNum"
-        text="Phone number"
-        Tag="input"
+        text="Phone"
         type="tel"
-        defaultForm={defaultForm}
+        placeholder={defaultForm.phoneNum}
+        id="phoneNum"
+        name="phoneNum"
+        handleChange={handleDynamicChange}
       />
-
       <FormInput
-        form={form}
-        setForm={setForm}
-        name="location"
         text="Location"
-        Tag="input"
         type="text"
-        defaultForm={defaultForm}
+        placeholder={defaultForm.location}
+        id="location"
+        name="location"
+        handleChange={handleDynamicChange}
       />
-
       <FormInput
-        form={form}
-        setForm={setForm}
-        name="website"
         text="Website"
-        Tag="input"
         type="url"
-        defaultForm={defaultForm}
+        placeholder={defaultForm.website}
+        id="website"
+        name="website"
+        handleChange={handleDynamicChange}
       />
     </div>
   );

@@ -2,7 +2,7 @@ import "../styles/Preview.css";
 import PrevPersonal from "./PrevPersonal";
 import PrevEducation from "./PrevEducation";
 
-function Preview({ detailsForm, defaultForm }) {
+function Preview({ defaultForm, detailsForm }) {
   return (
     <div className="preview">
       <PrevPersonal detailsForm={detailsForm} defaultForm={defaultForm} />

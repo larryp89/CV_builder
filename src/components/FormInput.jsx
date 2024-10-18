@@ -1,36 +1,53 @@
 import "../styles/FormInput.css";
+import { useState } from "react";
 
-function FormInput({ form, setForm, name, text, Tag, type, defaultForm }) {
-  // Handle form changes
-  const handleChange = (event) => {
-    const { value, checked } = event.target;
-    setForm((prevForm) => ({
-      ...prevForm,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
+function FormInput({
+  text,
+  placeholder = "",
+  Tag = "input",
+  type = "text",
+  name,
+  handleChange,
+}) {
+  // const handleInputChange = (event) => {
+  //   // Capture the change
+  //   const name = event.target.name;
+  //   const value =
+  //     type === "checkbox" ? event.target.checked : event.target.value;
+
+  //   // Update the form input with the new value
+  //   setDetailsForm((prevDetails) => {
+  //     let newDetails = { ...prevDetails, [name]: value };
+
+  //     // Check if the "ongoing" checkbox is checked
+  //     if (name === "ongoing" && value === true) {
+  //       // Set endDate to "Present" when ongoing is true
+  //       newDetails.endDate = "Present";
+  //     } else if (name === "ongoing" && value === false) {
+  //       // Clear endDate if ongoing is unchecked
+  //       newDetails.endDate = "";
+  //     }
+  //     return newDetails;
+  //   });
+  // };
 
   return (
     <div className="form-input">
       <label htmlFor={name}>{text}</label>
-
-      {Tag === "textarea" ? (
+      {Tag === "input" ? (
         <Tag
+          type={type}
+          placeholder={placeholder}
           id={name}
           name={name}
-          value={form[name] || ""} // Controlled value from form
           onChange={handleChange}
-          placeholder={defaultForm[name]} // Use default value for the placeholder
         />
       ) : (
         <Tag
-          type={type}
+          placeholder={placeholder}
           id={name}
           name={name}
-          value={form[name] || ""} // Controlled value from form
           onChange={handleChange}
-          // Conditionally add the placeholder attribute
-          {...(type !== "checkbox" ? { placeholder: defaultForm[name] } : {})}
         />
       )}
     </div>

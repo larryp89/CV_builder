@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "../styles/App.css";
-import Sidebar from "./Side";
+import { v4 as uuid } from "uuid";
+import Sidebar from "./Sidebar";
 import Preview from "./Preview";
 
 function App() {
-  // Default values for placeholder
+  // Default values for placeholder in some form elements & for other values in the preview until click
   const defaultForm = {
     firstName: "Homer",
     lastName: "Simpson",
@@ -22,7 +23,7 @@ function App() {
     ongoing: false,
   };
 
-  // Single state for all form data
+  // State for all form data
   const [detailsForm, setDetailsForm] = useState({
     firstName: "",
     lastName: "",
@@ -35,28 +36,77 @@ function App() {
     university: "",
     degree: "",
     startDate: "",
-    ongoing: false,
     endDate: "",
-    honors: "",
+    ongoing: false,
+    honors: [],
+    education: [],
+    jobs: [],
+    technicalSkills: [],
   });
 
-  // Function to handle education form submission
-  const handleEducationSubmit = (newEducation) => {
-    setDetailsForm((prevForm) => ({
-      ...prevForm,
-      ...newEducation,
+  const [educationInputs, setEducationInputs] = useState({
+    university: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+    ongoing: false,
+    honors: [],
+  });
+
+  // Handle dynamic updates for basic and contact information
+  const handleDynamicChange = (e) => {
+    // Deconstruct from the event object
+    const { name, value, type, checked } = e.target;
+    setDetailsForm((prevDetails) => ({
+      // Spread the previuos form
+      ...prevDetails,
+      // Use computed value of name and update it with the value, i.e. in the form input
+      [name]: type === "checkbox" ? checked : value,
     }));
+  };
+
+  const handleEducationChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setEducationInputs((prevInputs) => ({
+      ...prevInputs,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleEducationSubmit = (e) => {
+    e.preventDefault();
+    const newEducation = {
+      id: uuid(),
+      ...educationInputs,
+    };
+    setDetailsForm((prevDetails) => ({
+      ...prevDetails,
+      education: [...prevDetails.education, newEducation],
+    }));
+
+    // Reset education inputs
+    setEducationInputs({
+      university: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+      ongoing: false,
+      honors: [],
+    });
   };
 
   return (
     <div className="app-container">
       <Sidebar
-        detailsForm={detailsForm}
-        setDetailsForm={setDetailsForm}
-        handleEducationSubmit={handleEducationSubmit}
         defaultForm={defaultForm}
+        detailsForm={detailsForm}
+        educationInputs={educationInputs}
+        handleDynamicChange={handleDynamicChange}
+        handleEducationChange={handleEducationChange}
+        handleEducationSubmit={handleEducationSubmit}
+        setEducationInputs = {setEducationInputs}
       />
-      <Preview detailsForm={detailsForm} defaultForm={defaultForm} />
+      <Preview defaultForm={defaultForm} detailsForm={detailsForm} />
     </div>
   );
 }

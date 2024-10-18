@@ -1,90 +1,91 @@
-import { useState } from "react";
 import FormInput from "./FormInput";
 import "../styles/Education.css";
+import { v4 as uuid } from "uuid";
 
-function Education({ form, setForm, defaultForm }) {
-  const [localForm, setLocalForm] = useState({
-    university: form.university || "",
-    degree: form.degree || "",
-    startDate: form.startDate || "",
-    ongoing: form.ongoing || false,
-  });
-
-  const onSubmit = (e) => {
+function Education({
+  defaultForm,
+  handleEducationChange,
+  educationInputs,
+  handleEducationSubmit,
+  setEducationInputs,
+}) {
+  const addHonor = (e) => {
     e.preventDefault();
-    setForm(localForm);
+    const newHonor = e.target.honors.value.trim();
+    if (newHonor !== "") {
+      setEducationInputs((prevEducation) => ({
+        ...prevEducation,
+        honors: [...prevEducation.honors, newHonor], // Correctly update the honors array
+      }));
+
+      e.target.honors.value = ""; // Clear the input after adding
+    }
   };
 
   return (
     <div className="education">
       <h2 className="education__title">Education</h2>
-      <form onSubmit={onSubmit}>
-        <FormInput
-          form={localForm}
-          setForm={setLocalForm}
-          name="university"
-          text="University"
-          Tag="input"
-          type="text"
-          defaultForm={defaultForm}
-        />
-        <FormInput
-          form={localForm}
-          setForm={setLocalForm}
-          name="degree"
-          text="Degree"
-          Tag="input"
-          type="text"
-          defaultForm={defaultForm}
-        />
-        <FormInput
-          form={localForm}
-          setForm={setLocalForm}
-          name="startDate"
-          text="Start Date"
-          Tag="input"
-          type="date"
-          defaultForm={defaultForm}
-        />
+      <FormInput
+        text="University"
+        type="text"
+        placeholder={defaultForm.university}
+        id="university"
+        name="university"
+        handleChange={handleEducationChange}
+      />
+      <FormInput
+        text="Degree"
+        type="text"
+        placeholder={defaultForm.degree}
+        id="degree"
+        name="degree"
+        handleChange={handleEducationChange}
+      />
+      <FormInput
+        text="Start Date"
+        type="date"
+        placeholder={defaultForm.startDate}
+        id="startDate"
+        name="startDate"
+        handleChange={handleEducationChange}
+      />
+      <FormInput
+        text="Ongoing?"
+        type="checkbox"
+        id="ongoing"
+        name="ongoing"
+        handleChange={handleEducationChange}
+      />
+      {/* If the checkbox is ticked, don't show the end date & honors inputs */}
+      {!educationInputs.ongoing && (
+        <>
+          <FormInput
+            text="End Date"
+            type="date"
+            placeholder={defaultForm.endDate}
+            id="endDate"
+            name="endDate"
+            handleChange={handleEducationChange}
+          />
+          ,
+          <form action="" onSubmit={addHonor}>
+            <label htmlFor="honors">Achievements/Honors/Awards</label>
+            <div className="achievements-div">
+              <ul>
+                {educationInputs.honors.map((honor) => {
+                  return <li key={uuid()}>{honor}</li>;
+                })}
+              </ul>
+              <input type="text" id="honors" name="honors" />
+            </div>
+            <button>Add Achievement</button>
+          </form>
+        </>
+      )}
 
-        {/* Checkbox to indicate if education is ongoing */}
-        <FormInput
-          form={localForm}
-          setForm={setLocalForm}
-          name="ongoing"
-          text="Ongoing?"
-          Tag="input"
-          type="checkbox"
-          defaultForm={defaultForm}
-        />
-
-        {/* Conditionally render additional fields based on checkbox */}
-        {!localForm.ongoing && (
-          <>
-            <FormInput
-              form={localForm}
-              setForm={setLocalForm}
-              name="endDate"
-              text="End Date"
-              Tag="input"
-              type="date"
-              defaultForm={defaultForm}
-            />
-            <FormInput
-              form={localForm}
-              setForm={setLocalForm}
-              name="honors"
-              text="Honors/Distinctions"
-              Tag="textarea"
-              defaultForm={defaultForm}
-            />
-          </>
-        )}
-
-        <button className="education-submit" type="submit">
-          Update Education
-        </button>
-      </form>
+      <button className="education-submit" onClick={handleEducationSubmit}>
+        Submit Form
+      </button>
     </div>
   );
 }

@@ -4,10 +4,13 @@ import ContactInfo from "./ContactInfo";
 import Education from "./Education";
 
 function Sidebar({
-  detailsForm,
-  setDetailsForm,
   defaultForm,
+  detailsForm,
+  educationInputs,
+  handleDynamicChange,
+  handleEducationChange,
   handleEducationSubmit,
+  setEducationInputs,
 }) {
   return (
     <div className="sidebar">
@@ -18,22 +21,22 @@ function Sidebar({
           dynamically updated in the preview.
         </h3>
       </header>
-
       <PersonalDetails
-        form={detailsForm}
-        setForm={setDetailsForm}
         defaultForm={defaultForm}
+        detailsForm={detailsForm}
+        handleDynamicChange={handleDynamicChange}
       />
       <ContactInfo
-        form={detailsForm}
-        setForm={setDetailsForm}
         defaultForm={defaultForm}
+        detailsForm={detailsForm}
+        handleDynamicChange={handleDynamicChange}
       />
-
       <Education
-        form={detailsForm}
-        setForm={handleEducationSubmit}
         defaultForm={defaultForm}
+        educationInputs={educationInputs}
+        handleEducationChange={handleEducationChange}
+        handleEducationSubmit={handleEducationSubmit}
+        setEducationInputs={setEducationInputs}
       />
     </div>
   );
