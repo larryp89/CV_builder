@@ -2,16 +2,14 @@ import "../styles/Sidebar.css";
 import PersonalDetails from "./PersonalDetails";
 import ContactInfo from "./ContactInfo";
 import Education from "./Education";
+import WorkExperience from "./WorkExperience";
 
 function Sidebar({
   defaultForm,
   detailsForm,
-  educationInputs,
   handleDynamicChange,
-  handleEducationChange,
-  handleEducationSubmit,
-  setEducationInputs,
   setDetailsForm,
+  handleSubmit,
 }) {
   return (
     <div className="sidebar">
@@ -34,14 +32,15 @@ function Sidebar({
       />
       <Education
         defaultForm={defaultForm}
-        educationInputs={educationInputs}
-        handleEducationChange={handleEducationChange}
-        handleEducationSubmit={handleEducationSubmit}
-        setEducationInputs={setEducationInputs}
         detailsForm={detailsForm}
         setDetailsForm={setDetailsForm}
+        handleSubmit={handleSubmit}
       />
-      {/* <WorkExperience /> */}
+      <WorkExperience
+        defaultForm={defaultForm}
+        detailsForm={detailsForm}
+        handleSubmit={handleSubmit}
+      />
     </div>
   );
 }

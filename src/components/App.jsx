@@ -39,6 +39,7 @@ function App() {
 
   // State for all form data
   const [detailsForm, setDetailsForm] = useState({
+    // These update dynamically on input change
     firstName: "",
     lastName: "",
     currentJob: "",
@@ -47,34 +48,18 @@ function App() {
     phoneNum: "",
     location: "",
     website: "",
+    // These update on button click
     education: [],
-    jobs: [],
+    workExp: [],
     technicalSkills: [],
+    otherInfo: [],
   });
 
-  const [educationInputs, setEducationInputs] = useState({
-    id: null,
-    university: "",
-    degree: "",
-    startDate: "",
-    endDate: "",
-    ongoing: false,
-    honors: [],
-  });
+  const [technicalSkills, setTechnicalSkills] = useState([]);
+  const [otherInfo, setOtherInfo] = useState([]);
 
-  const [JobInputs, setJobInputs] = useState({
-    id: null,
-    title: "",
-    company: "",
-    startDate: "",
-    endDate: "",
-    ongoing: false,
-    responsibilities: [],
-  });
-
-  // Handle dynamic updates for basic and contact information
+  // Update the form directly from the respective inputs
   const handleDynamicChange = (e) => {
-    // Deconstruct from the event object
     const { name, value, type, checked } = e.target;
     setDetailsForm((prevDetails) => ({
       // Spread the previous form object
@@ -84,47 +69,27 @@ function App() {
     }));
   };
 
-  const handleEducationChange = (e) => {
-    // Update education inputs as above
-    const { name, value, type, checked } = e.target;
-    setEducationInputs((prevInputs) => ({
-      ...prevInputs,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
-
-  const handleEducationSubmit = (e) => {
+  // Generic handler for non-dynamic button submit
+  const handleSubmit = (e, inputs, stateKey) => {
     e.preventDefault();
-    if (educationInputs.id) {
-      // Update existing education entry
+    // If there is an ID
+    if (inputs.id) {
+      // Update existing entry using previous details and update specific key with
       setDetailsForm((prevDetails) => ({
+        // Spread the previous details and for the key, map
         ...prevDetails,
-        education: prevDetails.education.map((edu) =>
-          edu.id === educationInputs.id ? { ...educationInputs } : edu
+        [stateKey]: prevDetails[stateKey].map((item) =>
+          item.id === inputs.id ? { ...inputs } : item
         ),
       }));
     } else {
-      // Add new education entry
-      const newEducation = {
-        ...educationInputs,
-        id: uuid(),
-      };
+      // Add new entry
+      const newEntry = { ...inputs, id: uuid() };
       setDetailsForm((prevDetails) => ({
         ...prevDetails,
-        education: [...prevDetails.education, newEducation],
+        [stateKey]: [...prevDetails[stateKey], newEntry],
       }));
     }
-
-    // Reset education inputs
-    setEducationInputs({
-      id: null,
-      university: "",
-      degree: "",
-      startDate: "",
-      endDate: "",
-      ongoing: false,
-      honors: [],
-    });
   };
 
   return (
@@ -133,11 +98,8 @@ function App() {
         defaultForm={defaultForm}
         detailsForm={detailsForm}
         setDetailsForm={setDetailsForm}
-        educationInputs={educationInputs}
         handleDynamicChange={handleDynamicChange}
-        handleEducationChange={handleEducationChange}
-        handleEducationSubmit={handleEducationSubmit}
-        setEducationInputs={setEducationInputs}
+        handleSubmit={handleSubmit}
       />
       <Preview defaultForm={defaultForm} detailsForm={detailsForm} />
     </div>

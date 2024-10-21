@@ -1,4 +1,4 @@
-function EducationEdit({ detailsForm, setDetailsForm, setEducationInputs }) {
+function EditEducation({ detailsForm, setDetailsForm, setEducationInputs }) {
   const repopulateForm = (id) => {
     const entryToEdit = detailsForm.education.find((entry) => entry.id === id);
 
@@ -38,4 +38,4 @@ function EducationEdit({ detailsForm, setDetailsForm, setEducationInputs }) {
   );
 }
 
-export default EducationEdit;
+export default EditEducation;

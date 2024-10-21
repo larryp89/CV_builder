@@ -1,17 +1,42 @@
 import FormInput from "./FormInput";
 import "../styles/Education.css";
 import { v4 as uuid } from "uuid";
-import EducationEdit from "./EducationEdit";
+import EditEducation from "./EditEducation";
+import { useState } from "react";
 
-function Education({
-  defaultForm,
-  handleEducationChange,
-  educationInputs,
-  handleEducationSubmit,
-  setEducationInputs,
-  detailsForm,
-  setDetailsForm,
-}) {
+function Education({ defaultForm, detailsForm, setDetailsForm, handleSubmit }) {
+  const [educationInputs, setEducationInputs] = useState({
+    id: null,
+    university: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+    ongoing: false,
+    honors: [],
+  });
+
+  const handleEducationChange = (e) => {
+    // Update education inputs as above
+    const { name, value, type, checked } = e.target;
+    setEducationInputs((prevInputs) => ({
+      ...prevInputs,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const resetData = () => {
+    // Reset work experience state
+    setEducationInputs({
+      id: null,
+      university: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+      ongoing: false,
+      honors: [],
+    });
+  };
+
   const addHonor = (e) => {
     e.preventDefault();
     const newHonor = e.target.honors.value.trim();
@@ -36,7 +61,7 @@ function Education({
   return (
     <div className="education">
       <h2 className="education__title">Education</h2>
-      <EducationEdit
+      <EditEducation
         detailsForm={detailsForm}
         setDetailsForm={setDetailsForm}
         setEducationInputs={setEducationInputs}
@@ -103,14 +128,19 @@ function Education({
                   </li>
                 ))}
               </ul>
+              <button>Add Achievement</button>
             </div>
-            <button>Add Achievement</button>
           </form>
         </>
       )}
 
-      <button className="education-submit" onClick={handleEducationSubmit}>
-        Submit Form
+      <button
+        onClick={(e) => {
+          handleSubmit(e, educationInputs, "education");
+          resetData(); // Reset form after submission
+        }}
+      >
+        Submit Work Exp
       </button>
     </div>
   );
