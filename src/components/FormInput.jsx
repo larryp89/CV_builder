@@ -8,6 +8,7 @@ function FormInput({
   type = "text",
   name,
   handleChange,
+  value,
 }) {
   // const handleInputChange = (event) => {
   //   // Capture the change
@@ -41,6 +42,7 @@ function FormInput({
           id={name}
           name={name}
           onChange={handleChange}
+          value={value}
         />
       ) : (
         <Tag
@@ -48,6 +50,7 @@ function FormInput({
           id={name}
           name={name}
           onChange={handleChange}
+          value={value}
         />
       )}
     </div>

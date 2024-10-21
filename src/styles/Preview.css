@@ -11,6 +11,8 @@
   box-sizing: border-box;
 }
 
+/* PERSONAL DETAILS */
+
 .preview__personal-details {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -42,7 +44,20 @@
   height: 1.5rem;
 }
 
+/* EDUCATION */
+
 .uni-container {
   display: flex;
   gap: 1rem;
+}
+
+.title-date {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.uni-date {
+  font-size: 0.8rem;
+  font-style: italic;
 }

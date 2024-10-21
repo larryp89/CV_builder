@@ -1,6 +1,7 @@
 import FormInput from "./FormInput";
 import "../styles/Education.css";
 import { v4 as uuid } from "uuid";
+import EducationEdit from "./EducationEdit";
 
 function Education({
   defaultForm,
@@ -8,29 +9,45 @@ function Education({
   educationInputs,
   handleEducationSubmit,
   setEducationInputs,
+  detailsForm,
+  setDetailsForm,
 }) {
   const addHonor = (e) => {
     e.preventDefault();
     const newHonor = e.target.honors.value.trim();
     if (newHonor !== "") {
+      const honorWithId = { id: uuid(), text: newHonor }; // Create an object with UUID
       setEducationInputs((prevEducation) => ({
         ...prevEducation,
-        honors: [...prevEducation.honors, newHonor], // Correctly update the honors array
+        honors: [...prevEducation.honors, honorWithId], // Update the honors array with the new object
       }));
 
       e.target.honors.value = ""; // Clear the input after adding
     }
   };
 
+  const deleteHonor = (id) => {
+    setEducationInputs((prevEducation) => ({
+      ...prevEducation,
+      honors: prevEducation.honors.filter((honor) => honor.id !== id), // Remove the honor with the matching ID
+    }));
+  };
+
   return (
     <div className="education">
       <h2 className="education__title">Education</h2>
+      <EducationEdit
+        detailsForm={detailsForm}
+        setDetailsForm={setDetailsForm}
+        setEducationInputs={setEducationInputs}
+      />
       <FormInput
         text="University"
         type="text"
         placeholder={defaultForm.university}
         id="university"
         name="university"
+        value={educationInputs.university} // Controlled input
         handleChange={handleEducationChange}
       />
       <FormInput
@@ -40,6 +57,7 @@ function Education({
         id="degree"
         name="degree"
         handleChange={handleEducationChange}
+        value={educationInputs.degree}
       />
       <FormInput
         text="Start Date"
@@ -48,6 +66,7 @@ function Education({
         id="startDate"
         name="startDate"
         handleChange={handleEducationChange}
+        value={educationInputs.startDate}
       />
       <FormInput
         text="Ongoing?"
@@ -55,6 +74,7 @@ function Education({
         id="ongoing"
         name="ongoing"
         handleChange={handleEducationChange}
+        checked={educationInputs.ongoing} // Make sure to use checked for checkboxes
       />
       {/* If the checkbox is ticked, don't show the end date & honors inputs */}
       {!educationInputs.ongoing && (
@@ -66,17 +86,23 @@ function Education({
             id="endDate"
             name="endDate"
             handleChange={handleEducationChange}
+            value={educationInputs.endDate}
           />
-          ,
+
           <form action="" onSubmit={addHonor}>
             <label htmlFor="honors">Achievements/Honors/Awards</label>
             <div className="achievements-div">
-              <ul>
-                {educationInputs.honors.map((honor) => {
-                  return <li key={uuid()}>{honor}</li>;
-                })}
-              </ul>
               <input type="text" id="honors" name="honors" />
+              <ul>
+                {educationInputs.honors.map(({ id, text }) => (
+                  <li key={id}>
+                    {text}
+                    <button type="button" onClick={() => deleteHonor(id)}>
+                      X
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </div>
             <button>Add Achievement</button>
           </form>

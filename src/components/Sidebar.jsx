@@ -11,6 +11,7 @@ function Sidebar({
   handleEducationChange,
   handleEducationSubmit,
   setEducationInputs,
+  setDetailsForm,
 }) {
   return (
     <div className="sidebar">
@@ -37,7 +38,10 @@ function Sidebar({
         handleEducationChange={handleEducationChange}
         handleEducationSubmit={handleEducationSubmit}
         setEducationInputs={setEducationInputs}
+        detailsForm={detailsForm}
+        setDetailsForm={setDetailsForm}
       />
+      {/* <WorkExperience /> */}
     </div>
   );
 }
