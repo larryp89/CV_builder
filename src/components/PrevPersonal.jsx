@@ -8,9 +8,9 @@ function PreviewPersonal({ detailsForm, defaultForm }) {
           detailsForm.lastName || defaultForm.lastName
         }`}
       </h2>
-      <p className="preview__current-job">
+      <h3 className="preview__current-job">
         {detailsForm.currentJob || defaultForm.currentJob}
-      </p>
+      </h3>
       <p className="preview__personal-summary">
         {detailsForm.personalSummary || defaultForm.personalSummary}
       </p>

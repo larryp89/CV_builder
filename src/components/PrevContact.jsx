@@ -1,4 +1,4 @@
-import "../styles/PrevContact.css"
+import "../styles/PrevContact.css";
 
 function PrevContact({ detailsForm, defaultForm }) {
   return (
@@ -43,4 +43,4 @@ function PrevContact({ detailsForm, defaultForm }) {
   );
 }
 
-export default PrevContact
+export default PrevContact;

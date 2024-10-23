@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.preview__work-exp h3{
+  border-bottom: 1px solid rgb(46, 131, 189);
+}
+
 .job-title-date {
   display: flex;
   gap: 1rem;

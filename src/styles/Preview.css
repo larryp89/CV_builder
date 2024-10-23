@@ -3,9 +3,14 @@
   word-wrap: break-word;
 }
 
+.previeiw h1,
+.preview h2,
+.preview h3 {
+  color: rgb(46, 131, 189);
+}
+
 .preview {
   background-color: white;
-  color: rgb(14, 109, 188);
   width: 794px;
   height: 1123px; /* Fixed A4 height */
   grid-auto-rows: min-content; /* This makes rows only as tall as their content */
@@ -15,8 +20,4 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
-}
-
-h3 {
-  text-decoration: underline;
 }

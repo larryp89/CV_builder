@@ -1,3 +1,7 @@
+.preview__technical h3{
+    border-bottom: 1px solid rgb(46, 131, 189);
+}
+
 .skills{
     padding-left: 1.2rem;
 }
