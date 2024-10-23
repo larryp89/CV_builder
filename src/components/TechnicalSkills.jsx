@@ -86,7 +86,7 @@ function TechnicalSkills({
       />
 
       {skillInputs.category && (
-        <div>
+        <>
           <form onSubmit={addSkill}>
             <FormInput
               text={`Add a skill to ${skillInputs.category}`}
@@ -104,7 +104,7 @@ function TechnicalSkills({
               </li>
             ))}
           </ul>
-        </div>
+        </>
       )}
 
       <button

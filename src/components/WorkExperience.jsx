@@ -2,6 +2,7 @@ import FormInput from "./FormInput";
 import { useState } from "react";
 import EditWorkExp from "./EditWorkExperience";
 import { v4 as uuid } from "uuid";
+import "../styles/Sidebar.css";
 
 function WorkExperience({
   defaultForm,
@@ -58,7 +59,7 @@ function WorkExperience({
     }
   };
 
-  const deleteHonor = (id) => {
+  const deleteResponsibility = (id) => {
     setWorkExpInputs((prevWorkExp) => ({
       ...prevWorkExp,
       responsibilities: prevWorkExp.responsibilities.filter(
@@ -68,14 +69,13 @@ function WorkExperience({
   };
 
   return (
-    <div className="preview__work-experience">
+    <>
       <h2 className="work-experience__title">Work Experience</h2>
       <EditWorkExp
         detailsForm={detailsForm}
         setDetailsForm={setDetailsForm}
         setWorkExpInputs={setWorkExpInputs}
       />
-
       <FormInput
         text="Title/Position"
         type="text"
@@ -84,7 +84,6 @@ function WorkExperience({
         handleChange={handleWorkExpChange}
         value={workExpInputs.title}
       />
-
       <FormInput
         text="Company/Organisation"
         type="text"
@@ -93,7 +92,6 @@ function WorkExperience({
         handleChange={handleWorkExpChange}
         value={workExpInputs.company}
       />
-
       <FormInput
         text="Start Date"
         type="date"
@@ -102,14 +100,16 @@ function WorkExperience({
         handleChange={handleWorkExpChange}
         value={workExpInputs.startDate}
       />
-
-      <FormInput
-        text="Ongoing?"
-        type="checkbox"
-        name="ongoing"
-        handleChange={handleWorkExpChange}
-        checked={workExpInputs.ongoing}
-      />
+      <div className="checkbox">
+        <FormInput
+          className="checkbox"
+          text="Ongoing"
+          type="checkbox"
+          name="ongoing"
+          handleChange={handleWorkExpChange}
+          checked={workExpInputs.ongoing}
+        />
+      </div>
 
       {!workExpInputs.ongoing && (
         <>
@@ -124,25 +124,34 @@ function WorkExperience({
 
           <form action="" onSubmit={addResponsibility}>
             <label htmlFor="responsibilities">Responsibilities</label>
-            <div className="responsibilities-div">
-              <input type="text" name="responsibilities" />
-              <ul>
+            <div className="list-div">
+              <input
+                type="text"
+                id="responsibilities"
+                placeholder="Enter responsibilities"
+              />
+              <button className="button add-button">+</button>
+              <ul className="item-list">
                 {workExpInputs.responsibilities.map(({ id, text }) => (
                   <li key={id}>
-                    {text}
-                    <button type="button" onClick={() => deleteHonor(id)}>
-                      X
+                    {`${text} `}
+                    <button
+                      className="button x-button"
+                      type="button"
+                      onClick={() => deleteResponsibility(id)}
+                    >
+                      x
                     </button>
                   </li>
                 ))}
               </ul>
-              <button>Add Achievement</button>
             </div>
           </form>
         </>
       )}
 
       <button
+        className="button submit-button"
         onClick={(e) => {
           handleSubmit(e, workExpInputs, "workExp");
           resetData();
@@ -150,7 +159,7 @@ function WorkExperience({
       >
         Submit Work Exp
       </button>
-    </div>
+    </>
   );
 }
 

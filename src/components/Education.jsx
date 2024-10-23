@@ -1,8 +1,8 @@
 import FormInput from "./FormInput";
-import "../styles/Education.css";
 import { v4 as uuid } from "uuid";
 import EditEducation from "./EditEducation";
 import { useState } from "react";
+import "../styles/Sidebar.css";
 
 function Education({ defaultForm, detailsForm, setDetailsForm, handleSubmit }) {
   const [educationInputs, setEducationInputs] = useState({
@@ -60,8 +60,7 @@ function Education({ defaultForm, detailsForm, setDetailsForm, handleSubmit }) {
   };
 
   return (
-    <div className="education">
-      <h2 className="education__title">Education</h2>
+    <>
       <EditEducation
         detailsForm={detailsForm}
         setDetailsForm={setDetailsForm}
@@ -94,14 +93,16 @@ function Education({ defaultForm, detailsForm, setDetailsForm, handleSubmit }) {
         handleChange={handleEducationChange}
         value={educationInputs.startDate}
       />
-      <FormInput
-        text="Ongoing?"
-        type="checkbox"
-        id="ongoing"
-        name="ongoing"
-        handleChange={handleEducationChange}
-        checked={educationInputs.ongoing} // Make sure to use checked for checkboxes
-      />
+      <div className="checkbox">
+        <FormInput
+          text="Ongoing"
+          type="checkbox"
+          id="ongoing"
+          name="ongoing"
+          handleChange={handleEducationChange}
+          checked={educationInputs.ongoing} // Make sure to use checked for checkboxes
+        />
+      </div>
       {/* If the checkbox is ticked, don't show the end date & honors inputs */}
       {!educationInputs.ongoing && (
         <>
@@ -116,34 +117,45 @@ function Education({ defaultForm, detailsForm, setDetailsForm, handleSubmit }) {
           />
 
           <form action="" onSubmit={addHonor}>
-            <label htmlFor="honors">Achievements/Honors/Awards</label>
-            <div className="achievements-div">
-              <input type="text" id="honors" name="honors" />
-              <ul>
-                {educationInputs.honors.map(({ id, text }) => (
-                  <li key={id}>
-                    {text}
-                    <button type="button" onClick={() => deleteHonor(id)}>
-                      X
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              <button>Add Achievement</button>
-            </div>
+              <label htmlFor="honors">
+                Achievements/Honors/Awards
+                <div className="list-div">
+                  <input
+                    type="text"
+                    placeholder="Enter achievement"
+                    id="honors"
+                  />
+                  <button className="button add-button">+</button>
+                </div>
+                <ul className="item-list">
+                  {educationInputs.honors.map(({ id, text }) => (
+                    <li key={id}>
+                      {`${text} `}
+                      <button
+                        className="button x-button"
+                        type="button"
+                        onClick={() => deleteHonor(id)}
+                      >
+                        x
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </label>
           </form>
         </>
       )}
 
       <button
+        className="button submit-button"
         onClick={(e) => {
           handleSubmit(e, educationInputs, "education");
           resetData(); // Reset form after submission
         }}
       >
-        Submit Work Exp
+        Submit Education
       </button>
-    </div>
+    </>
   );
 }
 
