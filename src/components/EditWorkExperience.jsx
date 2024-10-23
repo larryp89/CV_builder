@@ -10,21 +10,21 @@ function EditWorkExp({ detailsForm, setDetailsForm, setWorkExpInputs }) {
     }
   };
 
-  //   const deleteUniversity = (id) => {
-  //     setDetailsForm((prevDetails) => ({
-  //       ...prevDetails,
-  //       education: prevDetails.education.filter((uni) => uni.id !== id),
-  //     }));
-  //     setEducationInputs({
-  //       id: null, // Reset id to null
-  //       university: "",
-  //       degree: "",
-  //       startDate: "",
-  //       endDate: "",
-  //       ongoing: false,
-  //       honors: [],
-  //     });
-  //   };
+  const deleteWorkExp = (id) => {
+    setDetailsForm((prevDetails) => ({
+      ...prevDetails,
+      workExp: prevDetails.workExp.filter((job) => job.id !== id),
+    }));
+    setWorkExpInputs({
+      id: null,
+      title: "",
+      company: "",
+      startDate: "",
+      ongoing: false,
+      endDate: "",
+      responsibilities: [],
+    });
+  };
 
   return (
     <ul>
@@ -32,7 +32,7 @@ function EditWorkExp({ detailsForm, setDetailsForm, setWorkExpInputs }) {
         <li key={entry.id}>
           {entry.title}/{entry.company}
           <button onClick={() => repopulateForm(entry.id)}>Edit</button>
-          {/* <button onClick={() => deleteUniversity(entry.id)}>Delete</button> */}
+          <button onClick={() => deleteWorkExp(entry.id)}>Delete</button>
         </li>
       ))}
     </ul>

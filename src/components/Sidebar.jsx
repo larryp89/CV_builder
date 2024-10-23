@@ -3,6 +3,8 @@ import PersonalDetails from "./PersonalDetails";
 import ContactInfo from "./ContactInfo";
 import Education from "./Education";
 import WorkExperience from "./WorkExperience";
+import TechnicalSkills from "./TechnicalSkills";
+import OtherSkills from "./OtherSkills";
 
 function Sidebar({
   defaultForm,
@@ -40,6 +42,19 @@ function Sidebar({
         defaultForm={defaultForm}
         detailsForm={detailsForm}
         handleSubmit={handleSubmit}
+        setDetailsForm={setDetailsForm}
+      />
+      <TechnicalSkills
+        defaultForm={defaultForm}
+        detailsForm={detailsForm}
+        handleSubmit={handleSubmit}
+        setDetailsForm={setDetailsForm}
+      />
+      <OtherSkills
+        defaultForm={defaultForm}
+        detailsForm={detailsForm}
+        handleSubmit={handleSubmit}
+        setDetailsForm={setDetailsForm}
       />
     </div>
   );

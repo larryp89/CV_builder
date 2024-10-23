@@ -10,7 +10,6 @@ function ContactInfo({ defaultForm, handleDynamicChange }) {
         text="Email "
         type="email"
         placeholder={defaultForm.email}
-        id="email"
         name="email"
         handleChange={handleDynamicChange}
       />
@@ -18,7 +17,6 @@ function ContactInfo({ defaultForm, handleDynamicChange }) {
         text="Phone"
         type="tel"
         placeholder={defaultForm.phoneNum}
-        id="phoneNum"
         name="phoneNum"
         handleChange={handleDynamicChange}
       />
@@ -26,7 +24,6 @@ function ContactInfo({ defaultForm, handleDynamicChange }) {
         text="Location"
         type="text"
         placeholder={defaultForm.location}
-        id="location"
         name="location"
         handleChange={handleDynamicChange}
       />
@@ -34,7 +31,6 @@ function ContactInfo({ defaultForm, handleDynamicChange }) {
         text="Website"
         type="url"
         placeholder={defaultForm.website}
-        id="website"
         name="website"
         handleChange={handleDynamicChange}
       />

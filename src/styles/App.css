@@ -4,5 +4,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   box-sizing: border-box;
-  height: 1123px;
+  height: 1123px; /* Keep this to maintain grid layout */
+  align-items: start; /* This prevents grid items from stretching */
 }

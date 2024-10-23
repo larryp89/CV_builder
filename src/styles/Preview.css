@@ -1,68 +1,22 @@
 .preview * {
   margin: 0;
+  word-wrap: break-word;
 }
 
 .preview {
   background-color: white;
   color: rgb(14, 109, 188);
   width: 794px;
+  height: 1123px; /* Fixed A4 height */
+  grid-auto-rows: min-content; /* This makes rows only as tall as their content */
   border: 1px solid black;
   padding: 2rem;
   box-sizing: border-box;
-}
-
-/* PERSONAL DETAILS */
-
-.preview__personal-details {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 2rem;
-  margin-bottom: 1rem;
 }
 
-.details-left,
-.details-right {
-  display: flex;
-  flex-direction: column;
-}
-
-.details-right {
-  justify-content: space-between;
-}
-
-.details-right > div {
-  display: flex;
-
-  gap: 1rem;
-}
-
-.preview__personal-summary {
-  margin-top: 1rem;
-}
-
-.details-right svg {
-  height: 1.5rem;
-}
-
-/* EDUCATION */
-
-.uni-container {
-  display: flex;
-  gap: 1rem;
-}
-
-.title-date {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-}
-
-.uni-date {
-  font-size: 0.8rem;
-  font-style: italic;
-}
-
-/* WORK EXPERIENCE */
-.work-experience__title {
-  margin-top: 1rem;
+h3 {
+  text-decoration: underline;
 }

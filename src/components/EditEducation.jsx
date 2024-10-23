@@ -4,7 +4,7 @@ function EditEducation({ detailsForm, setDetailsForm, setEducationInputs }) {
 
     if (entryToEdit) {
       setEducationInputs({
-        ...entryToEdit, // This spreads all properties, including the id
+        ...entryToEdit,
       });
     }
   };
@@ -14,8 +14,9 @@ function EditEducation({ detailsForm, setDetailsForm, setEducationInputs }) {
       ...prevDetails,
       education: prevDetails.education.filter((uni) => uni.id !== id),
     }));
+    // Reset local state
     setEducationInputs({
-      id: null, // Reset id to null
+      id: null,
       university: "",
       degree: "",
       startDate: "",

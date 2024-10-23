@@ -41,20 +41,21 @@ function Education({ defaultForm, detailsForm, setDetailsForm, handleSubmit }) {
     e.preventDefault();
     const newHonor = e.target.honors.value.trim();
     if (newHonor !== "") {
-      const honorWithId = { id: uuid(), text: newHonor }; // Create an object with UUID
+      const honorWithId = { id: uuid(), text: newHonor };
       setEducationInputs((prevEducation) => ({
         ...prevEducation,
-        honors: [...prevEducation.honors, honorWithId], // Update the honors array with the new object
+        honors: [...prevEducation.honors, honorWithId],
       }));
 
-      e.target.honors.value = ""; // Clear the input after adding
+      e.target.honors.value = "";
     }
   };
 
   const deleteHonor = (id) => {
     setEducationInputs((prevEducation) => ({
       ...prevEducation,
-      honors: prevEducation.honors.filter((honor) => honor.id !== id), // Remove the honor with the matching ID
+      // Remove the honor with the matching ID
+      honors: prevEducation.honors.filter((honor) => honor.id !== id),
     }));
   };
 

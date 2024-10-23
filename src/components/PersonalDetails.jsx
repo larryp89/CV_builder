@@ -10,7 +10,6 @@ function PersonalDetails({ defaultForm, handleDynamicChange }) {
         text="First Name"
         type="text"
         placeholder={defaultForm.firstName}
-        id="firstName"
         name="firstName"
         handleChange={handleDynamicChange}
       />
@@ -18,7 +17,6 @@ function PersonalDetails({ defaultForm, handleDynamicChange }) {
         text="Last Name"
         type="text"
         placeholder={defaultForm.lastName}
-        id="lastName"
         name="lastName"
         handleChange={handleDynamicChange}
       />
@@ -26,14 +24,12 @@ function PersonalDetails({ defaultForm, handleDynamicChange }) {
         text="Current Job Title"
         type="text"
         placeholder={defaultForm.currentJob}
-        id="currentJob"
         name="currentJob"
         handleChange={handleDynamicChange}
       />
       <FormInput
         text="Personal Summary"
         Tag="textarea"
-        id="personalSummary"
         name="personalSummary"
         handleChange={handleDynamicChange}
       />

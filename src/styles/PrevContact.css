@@ -1,0 +1,17 @@
+.preview__contact-details {
+  display: flex;
+  flex-direction: column;
+justify-content: space-between;  
+}
+
+.email-container,
+.phone-container,
+.location-container,
+.website-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.preview__contact-details svg {
+  height: 1rem;
+}

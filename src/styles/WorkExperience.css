@@ -1,22 +1,22 @@
-.preview__university {
+.preview__work-exp {
   display: flex;
   flex-direction: column;
 }
 
-.title-date {
+.job-title-date {
   display: flex;
   gap: 1rem;
-  align-items: center ;
+  align-items: center;
 }
 
-.uni-name{
+.work-exp-title {
   font-weight: 700;
 }
-.uni-date{
+.work-exp-date {
   font-size: 0.8rem;
   font-style: italic;
 }
 
-.honors {
+.work-responsibility {
   padding-left: 1.2rem;
 }

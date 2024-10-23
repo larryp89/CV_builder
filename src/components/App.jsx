@@ -31,10 +31,14 @@ function App() {
     jobEndDate: "04/01/1999",
     jobOngoing: false,
     responsibilities: [
-      "Talking to Lenny and Carl",
-      "Drinking beers",
-      "Endangering lives",
+      "Responsibility 1: Talking to Lenny and Carl",
+      "Responsibility 2: Drinking beers",
+      "Responsibility 3: Endangering lives",
     ],
+    technicalSkills: [
+      { id: 1, category: "Programming", skills: ["F", "F+", "F++"] },
+    ],
+    otherSkills: [{ id: 1, category: "Languages", skills: ["French"] }],
   };
 
   // State for all form data
@@ -48,42 +52,38 @@ function App() {
     phoneNum: "",
     location: "",
     website: "",
+
     // These update on button click
-    education: [],
-    workExp: [],
-    technicalSkills: [],
-    otherInfo: [],
+    education: [], //{id:, university:, degree:, startDate:, endDate:, ongoing:, honors:[]} honor(object with ID & text)
+    workExp: [], //{id:, title:, company:, startDate:, ongoing:, endDate:, resopnsibilities:[]} responsibility(obejct with ID & text)
+    technicalSkills: [], //{id: skill:, attributes:[] } attribute(object with ID & text)
+    otherSkills: [], // As above
   });
 
-  const [technicalSkills, setTechnicalSkills] = useState([]);
-  const [otherInfo, setOtherInfo] = useState([]);
-
-  // Update the form directly from the respective inputs
+  // Generic handler for udpating dynamically
   const handleDynamicChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type, checked } = e.target; //e.target is the target input event
     setDetailsForm((prevDetails) => ({
       // Spread the previous form object
       ...prevDetails,
-      // Use computed value of name and update it with the value, i.e. in the form input
+      // Use computed value of name (matches detailsForm key) and update it with the value, i.e. from the form input
       [name]: type === "checkbox" ? checked : value,
     }));
   };
 
   // Generic handler for non-dynamic button submit
   const handleSubmit = (e, inputs, stateKey) => {
+    // inputs (the object to insert into detailsForm), stateKey(the detailsForm key)
     e.preventDefault();
-    // If there is an ID
+
     if (inputs.id) {
-      // Update existing entry using previous details and update specific key with
       setDetailsForm((prevDetails) => ({
-        // Spread the previous details and for the key, map
         ...prevDetails,
         [stateKey]: prevDetails[stateKey].map((item) =>
           item.id === inputs.id ? { ...inputs } : item
         ),
       }));
     } else {
-      // Add new entry
       const newEntry = { ...inputs, id: uuid() };
       setDetailsForm((prevDetails) => ({
         ...prevDetails,

@@ -10,6 +10,7 @@ function WorkExperience({
   handleSubmit,
 }) {
   const [workExpInputs, setWorkExpInputs] = useState({
+    id: null,
     title: "",
     company: "",
     startDate: "",
@@ -30,6 +31,7 @@ function WorkExperience({
   const resetData = () => {
     // Reset work experience state
     setWorkExpInputs({
+      id: null,
       title: "",
       company: "",
       startDate: "",
@@ -78,7 +80,6 @@ function WorkExperience({
         text="Title/Position"
         type="text"
         placeholder={defaultForm.title}
-        id="title"
         name="title"
         handleChange={handleWorkExpChange}
         value={workExpInputs.title}
@@ -88,7 +89,6 @@ function WorkExperience({
         text="Company/Organisation"
         type="text"
         placeholder={defaultForm.company}
-        id="company"
         name="company"
         handleChange={handleWorkExpChange}
         value={workExpInputs.company}
@@ -98,7 +98,6 @@ function WorkExperience({
         text="Start Date"
         type="date"
         placeholder={defaultForm.jobStartDate}
-        id="startDate"
         name="startDate"
         handleChange={handleWorkExpChange}
         value={workExpInputs.startDate}
@@ -107,7 +106,6 @@ function WorkExperience({
       <FormInput
         text="Ongoing?"
         type="checkbox"
-        id="ongoing"
         name="ongoing"
         handleChange={handleWorkExpChange}
         checked={workExpInputs.ongoing}
@@ -119,7 +117,6 @@ function WorkExperience({
             text="End Date"
             type="date"
             placeholder={defaultForm.jobEndDate}
-            id="endDate"
             name="endDate"
             handleChange={handleWorkExpChange}
             value={workExpInputs.endDate}
@@ -128,11 +125,7 @@ function WorkExperience({
           <form action="" onSubmit={addResponsibility}>
             <label htmlFor="responsibilities">Responsibilities</label>
             <div className="responsibilities-div">
-              <input
-                type="text"
-                id="responsibilities"
-                name="responsibilities"
-              />
+              <input type="text" name="responsibilities" />
               <ul>
                 {workExpInputs.responsibilities.map(({ id, text }) => (
                   <li key={id}>

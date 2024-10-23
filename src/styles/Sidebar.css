@@ -4,6 +4,7 @@
   border: 1px solid black;
   padding: 0rem 3rem;
   background-color: white;
+  max-height: 1123px;
   overflow-y: auto;
   box-sizing: border-box;
 }
