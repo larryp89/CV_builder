@@ -8,6 +8,7 @@ function FormInput({
   name,
   handleChange,
   value,
+  checked, // Add checked prop for checkboxes
 }) {
   return (
     <div className="form-input">
@@ -19,7 +20,8 @@ function FormInput({
           id={name}
           name={name}
           onChange={handleChange}
-          value={value}
+          value={type === "checkbox" ? undefined : value} // For non-checkbox inputs, use value
+          checked={type === "checkbox" ? checked : undefined} // For checkboxes, use checked
         />
       ) : (
         <Tag

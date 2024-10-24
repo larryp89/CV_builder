@@ -101,7 +101,7 @@ function Education({ defaultForm, detailsForm, setDetailsForm, handleSubmit }) {
           id="ongoing"
           name="ongoing"
           handleChange={handleEducationChange}
-          checked={educationInputs.ongoing} // Make sure to use checked for checkboxes
+          checked={educationInputs.ongoing}
         />
       </div>
       {/* If the checkbox is ticked, don't show the end date & honors inputs */}

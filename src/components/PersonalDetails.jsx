@@ -1,7 +1,7 @@
 import "../styles/PersonalDetails.css";
 import FormInput from "./FormInput";
 
-function PersonalDetails({ defaultForm, handleDynamicChange }) {
+function PersonalDetails({ defaultForm, handleDynamicChange, detailsForm }) {
   return (
     <div className="personal-details">
       <h2 className="personal-details__title">Personal Details</h2>
@@ -12,6 +12,7 @@ function PersonalDetails({ defaultForm, handleDynamicChange }) {
         placeholder={defaultForm.firstName}
         name="firstName"
         handleChange={handleDynamicChange}
+        value={detailsForm.firstName}
       />
       <FormInput
         text="Last Name"
@@ -19,6 +20,7 @@ function PersonalDetails({ defaultForm, handleDynamicChange }) {
         placeholder={defaultForm.lastName}
         name="lastName"
         handleChange={handleDynamicChange}
+        value={detailsForm.lastName}
       />
       <FormInput
         text="Current Job Title"
@@ -26,12 +28,14 @@ function PersonalDetails({ defaultForm, handleDynamicChange }) {
         placeholder={defaultForm.currentJob}
         name="currentJob"
         handleChange={handleDynamicChange}
+        value={detailsForm.currentJob}
       />
       <FormInput
         text="Personal Summary"
         Tag="textarea"
         name="personalSummary"
         handleChange={handleDynamicChange}
+        value={detailsForm.personalSummary}
       />
     </div>
   );

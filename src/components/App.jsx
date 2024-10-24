@@ -3,6 +3,7 @@ import "../styles/App.css";
 import { v4 as uuid } from "uuid";
 import Sidebar from "./Sidebar";
 import Preview from "./Preview";
+import { useEffect } from "react";
 
 function App() {
   // Default values for placeholder in some form elements & for other values in the preview until click
@@ -42,23 +43,35 @@ function App() {
   };
 
   // State for all form data
-  const [detailsForm, setDetailsForm] = useState({
-    // These update dynamically on input change
-    firstName: "",
-    lastName: "",
-    currentJob: "",
-    personalSummary: "",
-    email: "",
-    phoneNum: "",
-    location: "",
-    website: "",
+  const [detailsForm, setDetailsForm] = useState(() => {
+    // Check if localStorage has saved form data
+    const storedForm = JSON.parse(localStorage.getItem("detailsForm"));
+    // If data exists, use it; otherwise, return the default empty form data
+    return (
+      storedForm || {
+        // These update dynamically on input change
+        firstName: "",
+        lastName: "",
+        currentJob: "",
+        personalSummary: "",
+        email: "",
+        phoneNum: "",
+        location: "",
+        website: "",
 
-    // These update on button click
-    education: [], //{id:, university:, degree:, startDate:, endDate:, ongoing:, honors:[]} honor(object with ID & text)
-    workExp: [], //{id:, title:, company:, startDate:, ongoing:, endDate:, resopnsibilities:[]} responsibility(obejct with ID & text)
-    technicalSkills: [], //{id: skill:, attributes:[] } attribute(object with ID & text)
-    otherSkills: [], // As above
+        // These update on button click
+        education: [], //{id:, university:, degree:, startDate:, endDate:, ongoing:, honors:[]} honor(object with ID & text)
+        workExp: [], //{id:, title:, company:, startDate:, ongoing:, endDate:, resopnsibilities:[]} responsibility(obejct with ID & text)
+        technicalSkills: [], //{id: skill:, attributes:[] } attribute(object with ID & text)
+        otherSkills: [], // As above
+      }
+    );
   });
+
+  // Set local storage
+  useEffect(() => {
+    localStorage.setItem("detailsForm", JSON.stringify(detailsForm));
+  }, [detailsForm]);
 
   // Generic handler for udpating dynamically
   const handleDynamicChange = (e) => {

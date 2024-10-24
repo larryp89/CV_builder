@@ -1,7 +1,7 @@
 import "../styles/ContactInfo.css";
 import FormInput from "./FormInput";
 
-function ContactInfo({ defaultForm, handleDynamicChange }) {
+function ContactInfo({ defaultForm, handleDynamicChange, detailsForm }) {
   return (
     <div className="contact-info">
       <h2 className="contact-details__title">Contact Details</h2>
@@ -12,6 +12,7 @@ function ContactInfo({ defaultForm, handleDynamicChange }) {
         placeholder={defaultForm.email}
         name="email"
         handleChange={handleDynamicChange}
+        value={detailsForm.email}
       />
       <FormInput
         text="Phone"
@@ -19,6 +20,7 @@ function ContactInfo({ defaultForm, handleDynamicChange }) {
         placeholder={defaultForm.phoneNum}
         name="phoneNum"
         handleChange={handleDynamicChange}
+        value={detailsForm.phone}
       />
       <FormInput
         text="Location"
@@ -26,6 +28,7 @@ function ContactInfo({ defaultForm, handleDynamicChange }) {
         placeholder={defaultForm.location}
         name="location"
         handleChange={handleDynamicChange}
+        value={detailsForm.location}
       />
       <FormInput
         text="Website"
@@ -33,6 +36,7 @@ function ContactInfo({ defaultForm, handleDynamicChange }) {
         placeholder={defaultForm.website}
         name="website"
         handleChange={handleDynamicChange}
+        value={detailsForm.website}
       />
     </div>
   );
