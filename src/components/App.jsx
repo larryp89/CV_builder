@@ -29,8 +29,8 @@ function App() {
     title: "Meltdown Specialist",
     company: "Springfield Power Plant",
     jobStartDate: "03/01/1999",
-    jobEndDate: "",
-    jobOngoing: true,
+    jobEndDate: "Present",
+    jobOngoing: false,
     responsibilities: [
       "Responsibility 1: Talking to Lenny and Carl",
       "Responsibility 2: Drinking beers",

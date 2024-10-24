@@ -10,7 +10,7 @@ function PrevWorkExp({ detailsForm, defaultForm }) {
             <div key={entry.id}>
               <div className="job-title-date">
                 <p className="work-exp-title">{entry.title}</p>
-                <p className="work-exp-dates">
+                <p className="work-exp-date">
                   {entry.startDate} -{" "}
                   {entry.ongoing ? "Present" : entry.endDate}
                 </p>
