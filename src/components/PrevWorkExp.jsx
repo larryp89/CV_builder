@@ -33,7 +33,7 @@ function PrevWorkExp({ detailsForm, defaultForm }) {
           <div className="job-title-date">
             <p className="work-exp-title">{defaultForm.title}</p>
             <p className="work-exp-date">
-              {defaultForm.startDate} - {defaultForm.endDate}
+              {defaultForm.jobStartDate} - {defaultForm.jobEndDate}
             </p>
           </div>
           <p className="work-exp-company">{defaultForm.company}</p>
