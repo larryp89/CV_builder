@@ -1,7 +1,7 @@
 .preview__contact-details {
   display: flex;
   flex-direction: column;
-justify-content: space-between;  
+  justify-content: space-between;
 }
 
 .email-container,
@@ -10,6 +10,7 @@ justify-content: space-between;
 .website-container {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 
 .preview__contact-details svg {
