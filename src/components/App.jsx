@@ -24,7 +24,7 @@ function App() {
     ongoing: false,
     honors: [
       "Awards: Down a pint 1.8 seconds, Slept for 45 hours straight",
-      "Organisaitons: Beer society",
+      "Organisations: Beer society",
     ],
     title: "Meltdown Specialist",
     company: "Springfield Power Plant",
