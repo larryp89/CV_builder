@@ -12,7 +12,7 @@ function App() {
     lastName: "Simpson",
     currentJob: "Power Plant Worker",
     personalSummary:
-      "I am a great man who does great things. The thing I am most proud of is sleeping on the job and no one even notices. Hell, even in a nuclear meltdown I was asleep! Screw your Burns!",
+      "I am a great man who does great things. The thing I am most proud of is sleeping on the job and no one even notices. Hell, even in a nuclear meltdown I was asleep! Screw you Burns!",
     email: "homer@foxtv.net",
     phoneNum: "411000",
     location: "Springfield",
@@ -29,8 +29,8 @@ function App() {
     title: "Meltdown Specialist",
     company: "Springfield Power Plant",
     jobStartDate: "03/01/1999",
-    jobEndDate: "04/01/1999",
-    jobOngoing: false,
+    jobEndDate: "",
+    jobOngoing: true,
     responsibilities: [
       "Responsibility 1: Talking to Lenny and Carl",
       "Responsibility 2: Drinking beers",
@@ -39,7 +39,7 @@ function App() {
     technicalSkills: [
       { id: 1, category: "Programming", skills: ["F", "F+", "F++"] },
     ],
-    otherSkills: [{ id: 1, category: "Languages", skills: ["French"] }],
+    otherSkills: [{ id: 1, category: "Languages", skills: ["American"] }],
   };
 
   // State for all form data
