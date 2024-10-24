@@ -12,7 +12,8 @@
 .sidebar h1,
 .sidebar h2 {
   color: black;
-  margin-bottom: 0rem}
+  margin-bottom: 0rem;
+}
 
 .sidebar label {
   color: black;
@@ -36,6 +37,12 @@
 #ongoing {
   align-self: start;
   margin-bottom: 0.5rem;
+}
+
+input:focus,
+textarea:focus {
+  border: 3px solid rgb(46, 131, 189);
+  outline: none;
 }
 /* GENERIC BUTTONS */
 
@@ -75,6 +82,10 @@
   font-weight: 900;
 }
 
+.edit-button {
+  margin-right: auto;
+}
+
 /* LISTS */
 
 .list-div input {
@@ -98,4 +109,19 @@
   opacity: 1;
   color: rgb(46, 131, 189);
   font-weight: 800;
+}
+
+/* SUBMISSIONS */
+.edit-submission {
+  list-style: none;
+  padding-left: 0;
+}
+.edit-submission li {
+  border: 1px solid rgb(46, 131, 189);
+  margin: 0.5rem 0rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

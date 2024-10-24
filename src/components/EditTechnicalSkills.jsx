@@ -27,12 +27,24 @@ function EditTechnicalSkills({ detailsForm, setDetailsForm, setSkillInputs }) {
   };
 
   return (
-    <ul>
+    <ul className="edit-submission">
       {detailsForm.technicalSkills.map((entry) => (
         <li key={entry.id}>
           {entry.category} ({entry.skills.join(", ")})
-          <button onClick={() => repopulateForm(entry.id)}>Edit</button>
-          <button onClick={() => deleteCategory(entry.id)}>Delete</button>
+          <div className="buttons">
+            <button
+              className="button edit-button"
+              onClick={() => repopulateForm(entry.id)}
+            >
+              Edit
+            </button>
+            <button
+              className="button edit-button"
+              onClick={() => deleteCategory(entry.id)}
+            >
+              Delete
+            </button>
+          </div>
         </li>
       ))}
     </ul>

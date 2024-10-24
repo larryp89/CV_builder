@@ -11,6 +11,14 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  margin-bottom: -10px;
+}
+
+.job-title-date::before {
+  content: "•"; /* or "\2022" for a bullet point */
+  margin-right: -10px;
+  background-color: #fff;
+  font-size: 30px;
 }
 
 .work-exp-title {
@@ -22,5 +30,6 @@
 }
 
 .work-responsibility {
-  padding-left: 1.2rem;
+  padding-left: 2rem;
 }
+

@@ -87,18 +87,17 @@ function TechnicalSkills({
       />
 
       {skillInputs.category && (
-        <>
+        <div className="list-div">
           <form onSubmit={addSkill}>
-            <FormInput
+            <input
               text={`Add a skill to ${skillInputs.category}`}
               placeholder={defaultForm.technicalSkills[0].skills[0]}
               name="skill"
             />
             <button className="button add-button" type="submit">
-              Add skill
+              +
             </button>
           </form>
-
           <ul className="item-list">
             {skillInputs.skills.map((skill, index) => (
               <li key={index}>
@@ -112,10 +111,11 @@ function TechnicalSkills({
               </li>
             ))}
           </ul>
-        </>
+        </div>
       )}
 
-      <button className="button submit-button"
+      <button
+        className="button submit-button"
         onClick={(e) => {
           handleSubmit(e, skillInputs, "technicalSkills");
           resetData();

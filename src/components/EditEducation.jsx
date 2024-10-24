@@ -27,12 +27,24 @@ function EditEducation({ detailsForm, setDetailsForm, setEducationInputs }) {
   };
 
   return (
-    <ul>
+    <ul className="edit-submission">
       {detailsForm.education.map((entry) => (
         <li key={entry.id}>
           {entry.university}/{entry.degree}
-          <button onClick={() => repopulateForm(entry.id)}>Edit</button>
-          <button onClick={() => deleteUniversity(entry.id)}>Delete</button>
+          <div className="buttons">
+            <button
+              className="button edit-button"
+              onClick={() => repopulateForm(entry.id)}
+            >
+              Edit
+            </button>
+            <button
+              className="button edit-button"
+              onClick={() => deleteUniversity(entry.id)}
+            >
+              Delete
+            </button>
+          </div>
         </li>
       ))}
     </ul>

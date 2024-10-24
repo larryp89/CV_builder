@@ -116,42 +116,37 @@ function Education({ defaultForm, detailsForm, setDetailsForm, handleSubmit }) {
             handleChange={handleEducationChange}
             value={educationInputs.endDate}
           />
-
-          <form action="" onSubmit={addHonor}>
-            <label htmlFor="honors">
-              Achievements/Honors/Awards
-              <div className="list-div">
-                <input
-                  type="text"
-                  placeholder="Enter achievement"
-                  id="honors"
-                />
-                <button className="button add-button">+</button>
-              </div>
-              <ul className="item-list">
-                {educationInputs.honors.map(({ id, text }) => (
-                  <li key={id}>
-                    {`${text} `}
-                    <button
-                      className="button x-button"
-                      type="button"
-                      onClick={() => deleteHonor(id)}
-                    >
-                      x
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </label>
-          </form>
         </>
       )}
+      <form action="" onSubmit={addHonor}>
+        <label htmlFor="honors">
+          Achievements/Honors/Awards
+          <div className="list-div">
+            <input type="text" placeholder="Enter achievement" id="honors" />
+            <button className="button add-button">+</button>
+          </div>
+          <ul className="item-list">
+            {educationInputs.honors.map(({ id, text }) => (
+              <li key={id}>
+                {`${text} `}
+                <button
+                  className="button x-button"
+                  type="button"
+                  onClick={() => deleteHonor(id)}
+                >
+                  x
+                </button>
+              </li>
+            ))}
+          </ul>
+        </label>
+      </form>
 
       <button
         className="button submit-button"
         onClick={(e) => {
           handleSubmit(e, educationInputs, "education");
-          resetData(); // Reset form after submission
+          resetData();
         }}
       >
         Submit Education

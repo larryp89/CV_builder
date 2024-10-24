@@ -83,21 +83,26 @@ function OtherSkills({
       />
 
       {skillInputs.category && (
-        <div>
+        <div className="list-div">
           <form onSubmit={addSkill}>
-            <FormInput
+            <input
               text={`Add a skill to ${skillInputs.category}`}
               placeholder={defaultForm.otherSkills[0].skills[0]}
               name="skill"
             />
-            <button type="submit">Add skill</button>
+            <button className="button add-button">+</button>
           </form>
 
-          <ul>
+          <ul className="item-list">
             {skillInputs.skills.map((skill, index) => (
               <li key={index}>
                 {skill}
-                <button onClick={() => deleteSkill(skill)}>X</button>
+                <button
+                  className="button x-button"
+                  onClick={() => deleteSkill(skill)}
+                >
+                  X
+                </button>
               </li>
             ))}
           </ul>
@@ -105,12 +110,13 @@ function OtherSkills({
       )}
 
       <button
+        className="button submit-button"
         onClick={(e) => {
           handleSubmit(e, skillInputs, "otherSkills");
           resetData();
         }}
       >
-        Submit Skills
+        Submit Other Skills
       </button>
     </div>
   );

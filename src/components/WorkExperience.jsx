@@ -121,34 +121,33 @@ function WorkExperience({
             handleChange={handleWorkExpChange}
             value={workExpInputs.endDate}
           />
-
-          <form action="" onSubmit={addResponsibility}>
-            <label htmlFor="responsibilities">Responsibilities</label>
-            <div className="list-div">
-              <input
-                type="text"
-                id="responsibilities"
-                placeholder="Enter responsibilities"
-              />
-              <button className="button add-button">+</button>
-              <ul className="item-list">
-                {workExpInputs.responsibilities.map(({ id, text }) => (
-                  <li key={id}>
-                    {`${text} `}
-                    <button
-                      className="button x-button"
-                      type="button"
-                      onClick={() => deleteResponsibility(id)}
-                    >
-                      x
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </form>
         </>
       )}
+      <form action="" onSubmit={addResponsibility}>
+        <label htmlFor="responsibilities">Responsibilities</label>
+        <div className="list-div">
+          <input
+            type="text"
+            id="responsibilities"
+            placeholder="Enter responsibilities"
+          />
+          <button className="button add-button">+</button>
+          <ul className="item-list">
+            {workExpInputs.responsibilities.map(({ id, text }) => (
+              <li key={id}>
+                {`${text} `}
+                <button
+                  className="button x-button"
+                  type="button"
+                  onClick={() => deleteResponsibility(id)}
+                >
+                  x
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </form>
 
       <button
         className="button submit-button"

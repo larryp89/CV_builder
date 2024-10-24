@@ -27,12 +27,24 @@ function EditWorkExp({ detailsForm, setDetailsForm, setWorkExpInputs }) {
   };
 
   return (
-    <ul>
+    <ul className="edit-submission">
       {detailsForm.workExp.map((entry) => (
         <li key={entry.id}>
           {entry.title}/{entry.company}
-          <button onClick={() => repopulateForm(entry.id)}>Edit</button>
-          <button onClick={() => deleteWorkExp(entry.id)}>Delete</button>
+          <div className="buttons">
+            <button
+              className="button edit-button"
+              onClick={() => repopulateForm(entry.id)}
+            >
+              Edit
+            </button>
+            <button
+              className="button edit-button"
+              onClick={() => deleteWorkExp(entry.id)}
+            >
+              Delete
+            </button>
+          </div>
         </li>
       ))}
     </ul>

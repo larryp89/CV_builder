@@ -1,4 +1,4 @@
-import "../styles/Education.css"
+import "../styles/Education.css";
 function PrevEducation({ detailsForm, defaultForm }) {
   return (
     <section className="preview__education">
@@ -8,7 +8,7 @@ function PrevEducation({ detailsForm, defaultForm }) {
         {detailsForm.education.length > 0 ? (
           detailsForm.education.map((entry) => {
             return (
-              <div key={entry.id}>
+              <div className="preview__uni-block" key={entry.id}>
                 <div className="title-date">
                   <p className="uni-name">{entry.university}</p>
                   <p className="uni-date">
