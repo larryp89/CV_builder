@@ -12,7 +12,7 @@
 .sidebar h1,
 .sidebar h2 {
   color: black;
-}
+  margin-bottom: 0rem}
 
 .sidebar label {
   color: black;
@@ -23,16 +23,19 @@
   margin-bottom: 2rem;
   height: 2rem;
   padding: 1rem;
+  border-radius: 8px;
 }
 
 .sidebar textarea {
   height: 10rem;
   margin-bottom: 2rem;
   padding: 1rem;
+  border-radius: 8px;
 }
 
-.checkbox {
+#ongoing {
   align-self: start;
+  margin-bottom: 0.5rem;
 }
 /* GENERIC BUTTONS */
 
@@ -59,10 +62,9 @@
   color: red;
 }
 
-
-
 .submit-button {
   background-color: grey;
+  margin-top: -20px;
 }
 .add-button {
   padding: 0.6rem;
@@ -78,7 +80,7 @@
 .list-div input {
   border-radius: 8px;
   height: 0.5rem;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 .item-list {
   display: flex;
@@ -94,8 +96,6 @@
   border-radius: 5px;
   border: 1px solid rgb(46, 131, 189);
   opacity: 1;
-  color:rgb(46, 131, 189);
+  color: rgb(46, 131, 189);
   font-weight: 800;
 }
-
-

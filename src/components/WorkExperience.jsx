@@ -69,7 +69,7 @@ function WorkExperience({
   };
 
   return (
-    <>
+    <div className="work-experience">
       <h2 className="work-experience__title">Work Experience</h2>
       <EditWorkExp
         detailsForm={detailsForm}
@@ -157,9 +157,9 @@ function WorkExperience({
           resetData();
         }}
       >
-        Submit Work Exp
+        Submit Work Experience
       </button>
-    </>
+    </div>
   );
 }
 

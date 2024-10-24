@@ -1,3 +1,4 @@
+import "../styles/Education.css"
 function PrevEducation({ detailsForm, defaultForm }) {
   return (
     <section className="preview__education">

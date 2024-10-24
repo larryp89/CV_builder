@@ -2,6 +2,7 @@
 import EditTechnicalSkills from "./EditTechnicalSkills";
 import FormInput from "./FormInput";
 import { useState } from "react";
+import "../styles/Sidebar.css";
 
 function TechnicalSkills({
   defaultForm,
@@ -64,7 +65,7 @@ function TechnicalSkills({
   };
 
   return (
-    <div>
+    <div className="technical-skills">
       <h2>Technical Skills</h2>
       <p>
         Showcase the most relevant skills applicable to the job you're applying
@@ -93,27 +94,34 @@ function TechnicalSkills({
               placeholder={defaultForm.technicalSkills[0].skills[0]}
               name="skill"
             />
-            <button type="submit">Add skill</button>
+            <button className="button add-button" type="submit">
+              Add skill
+            </button>
           </form>
 
-          <ul>
+          <ul className="item-list">
             {skillInputs.skills.map((skill, index) => (
               <li key={index}>
                 {skill}
-                <button onClick={() => deleteSkill(skill)}>X</button>
+                <button
+                  className="button x-button"
+                  onClick={() => deleteSkill(skill)}
+                >
+                  X
+                </button>
               </li>
             ))}
           </ul>
         </>
       )}
 
-      <button
+      <button className="button submit-button"
         onClick={(e) => {
           handleSubmit(e, skillInputs, "technicalSkills");
           resetData();
         }}
       >
-        Submit Skills
+        Submit Technical Skills
       </button>
     </div>
   );

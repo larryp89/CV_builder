@@ -1,6 +1,7 @@
 import FormInput from "./FormInput";
 import { useState } from "react";
 import EditOtherSkills from "./EditOtherSkills";
+import "../styles/Sidebar.css";
 
 function OtherSkills({
   defaultForm,
@@ -63,7 +64,7 @@ function OtherSkills({
   };
 
   return (
-    <div>
+    <div className="">
       <h2>Other Skills</h2>
       <p>Inculde any additional skills relevant for the position.</p>
 

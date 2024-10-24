@@ -60,7 +60,8 @@ function Education({ defaultForm, detailsForm, setDetailsForm, handleSubmit }) {
   };
 
   return (
-    <>
+    <div className="education-info">
+      <h2 className="education__title">Education</h2>
       <EditEducation
         detailsForm={detailsForm}
         setDetailsForm={setDetailsForm}
@@ -117,31 +118,31 @@ function Education({ defaultForm, detailsForm, setDetailsForm, handleSubmit }) {
           />
 
           <form action="" onSubmit={addHonor}>
-              <label htmlFor="honors">
-                Achievements/Honors/Awards
-                <div className="list-div">
-                  <input
-                    type="text"
-                    placeholder="Enter achievement"
-                    id="honors"
-                  />
-                  <button className="button add-button">+</button>
-                </div>
-                <ul className="item-list">
-                  {educationInputs.honors.map(({ id, text }) => (
-                    <li key={id}>
-                      {`${text} `}
-                      <button
-                        className="button x-button"
-                        type="button"
-                        onClick={() => deleteHonor(id)}
-                      >
-                        x
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </label>
+            <label htmlFor="honors">
+              Achievements/Honors/Awards
+              <div className="list-div">
+                <input
+                  type="text"
+                  placeholder="Enter achievement"
+                  id="honors"
+                />
+                <button className="button add-button">+</button>
+              </div>
+              <ul className="item-list">
+                {educationInputs.honors.map(({ id, text }) => (
+                  <li key={id}>
+                    {`${text} `}
+                    <button
+                      className="button x-button"
+                      type="button"
+                      onClick={() => deleteHonor(id)}
+                    >
+                      x
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </label>
           </form>
         </>
       )}
@@ -155,7 +156,7 @@ function Education({ defaultForm, detailsForm, setDetailsForm, handleSubmit }) {
       >
         Submit Education
       </button>
-    </>
+    </div>
   );
 }
 

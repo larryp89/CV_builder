@@ -7,7 +7,7 @@ function PrevOtherSkills({ detailsForm, defaultForm }) {
         ? detailsForm.otherSkills.map((skill) => (
             <div key={skill.id}>
               <h4>{skill.category}</h4>
-              <ul className="other-skills">
+              <ul className="preview__other-skills-list">
                 {skill.skills.map((singleSkill, idx) => (
                   <li key={idx}>{singleSkill}</li>
                 ))}
@@ -17,7 +17,7 @@ function PrevOtherSkills({ detailsForm, defaultForm }) {
         : defaultForm.otherSkills.map((skill) => (
             <div key={skill.id}>
               <h4>{skill.category}</h4>
-              <ul className="other-skills">
+              <ul className="preview__other-skills-list">
                 {skill.skills.map((singleSkill, idx) => (
                   <li key={idx}>{singleSkill}</li>
                 ))}
