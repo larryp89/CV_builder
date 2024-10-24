@@ -125,3 +125,11 @@ textarea:focus {
   align-items: center;
   justify-content: space-between;
 }
+
+/* SAVE FORM */
+.save-form {
+  position:fixed;
+  right:50px;
+  top: 20px
+  
+}
